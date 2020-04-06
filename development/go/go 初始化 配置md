@@ -1,0 +1,84 @@
+mac 安装go
+
+
+
+查找版本
+
+brew search go
+
+
+
+```zsh
+➜  ~ brew search go
+==> Formulae
+algol68g                          gobo                              gource
+anycable-go                       gobuster                          govc
+arangodb                          gocr                              govendor
+argon2                            gocryptfs                         gowsdl
+aws-google-auth                   godep                             gox
+baidupcs-go                       goenv                             gst-plugins-good
+bogofilter                        gofabric8                         gx-go
+cargo-c                           goffice                           hugo
+cargo-completion                  golang-migrate                    jfrog-cli-go
+cargo-instruments                 gollum                            jpegoptim
+certigo                           golo                              katago
+cgoban                            gom                               lego
+clingo                            gomplate                          lgogdownloader
+django-completion                 goocanvas                         libgosu
+forego                            goofys                            mongo-c-driver
+fuego                             google-authenticator-libpam       mongo-cxx-driver
+gnu-go                            google-benchmark                  mongo-orchestration
+go ✔                              google-java-format                mongoose
+go-bindata                        google-sparsehash                 pango
+go-jira                           google-sql-tool                   pangomm
+go-md2man                         googler                           powerline-go
+go-statik                         goolabs                           protoc-gen-go
+go@1.10                           goose                             pygobject3
+go@1.11                           gopass                            ringojs
+go@1.12                           gor                               spaceinvaders-go
+go@1.13                           goreleaser                        spigot
+go@1.9                            goreman                           svgo
+goaccess                          gosu                              wego
+```
+
+
+
+安装1.9版本
+
+```
+ brew install go@1.9
+```
+
+删除go1.14
+
+```
+rm -rf /usr/local/opt/go@1.14
+```
+
+```
+rm -r /usr/local/Cellar/go/1.14.1
+```
+
+安装开发工具GoLand
+
+
+
+官网
+
+https://golang.org/doc/
+
+
+
+学习指南
+
+https://zhuanlan.zhihu.com/p/77999699
+
+第一阶段
+
+https://books.studygolang.com/gobyexample/hello-world/
+
+# 参考
+
+https://www.jianshu.com/p/79bdd20c46cf
+
+https://www.cnblogs.com/ITPower/p/11908009.html
