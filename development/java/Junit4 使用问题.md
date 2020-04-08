@@ -1,5 +1,15 @@
 
 
+
+
+spring4 使用junit4 
+
+https://www.jianshu.com/p/c22e03dd3574
+
+https://www.devglan.com/spring-mvc/writing-junit-tests-in-spring4-mvc
+
+
+
 # 异常信息
 
 Caused by: java.lang.NoSuchMethodError: javax.servlet.ServletContext.getContextPath()Ljava...
