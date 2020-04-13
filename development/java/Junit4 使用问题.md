@@ -10,6 +10,8 @@ https://www.devglan.com/spring-mvc/writing-junit-tests-in-spring4-mvc
 
 
 
+junit测试接口，CheckApiPermission注释掉，无法返回response
+
 # 异常信息
 
 Caused by: java.lang.NoSuchMethodError: javax.servlet.ServletContext.getContextPath()Ljava...
