@@ -42,6 +42,16 @@ passwd username
 
 
 
+端口号查询
+
+# 参考
+
+
+
+https://blog.csdn.net/RBPicsdn/article/details/81079080
+
+
+
 zip -r mydata.zip mydata #压缩mydata目录
 2、把/home目录下面的mydata.zip解压到mydatabak目录里面
 unzip mydata.zip -d mydatabak

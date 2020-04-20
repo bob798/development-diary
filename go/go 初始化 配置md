@@ -59,7 +59,65 @@ rm -rf /usr/local/opt/go@1.14
 rm -r /usr/local/Cellar/go/1.14.1
 ```
 
+
+
+pkg安装
+
+安装pkg包，一直next
+
+go安装于/usr/local/go 
+
+set goroot，编辑shell文件
+
+vim ~/.zshrc
+
+```shell
+GOROOT=/usr/local/go
+
+export PATH=$GOROOT/bin:$PYTHON_HOME/bin:/usr/local/bin:$PATH
+```
+
+生效配置
+
+source .zshrc
+
+测试安装成功，执行go命令
+
+```shell
+➜  go go
+Go is a tool for managing Go source code.
+
+Usage:
+
+	go <command> [arguments]
+
+The commands are:
+
+	bug         start a bug report
+	build       compile packages and dependencies
+	clean       remove object files and cached files
+	doc         show documentation for package or symbol
+	env         print Go environment information
+	fix         update packages to use new APIs
+	fmt         gofmt (reformat) package sources
+	generate    generate Go files by processing source
+	get         add dependencies to current module and install them
+	install     compile and install packages and dependencies
+	list        list packages or modules
+	mod         module maintenance
+	run         compile and run Go program
+	test        test packages
+	tool        run specified go tool
+	version     print Go version
+	vet         report likely mistakes in packages
+
+```
+
+go
+
 安装开发工具GoLand
+
+
 
 
 
@@ -82,3 +140,5 @@ https://books.studygolang.com/gobyexample/hello-world/
 https://www.jianshu.com/p/79bdd20c46cf
 
 https://www.cnblogs.com/ITPower/p/11908009.html
+
+https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.1.md
