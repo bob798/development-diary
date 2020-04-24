@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+​    <title>椭圆</title>
+
+​    
+
+</head>
+
+<body>
+
+​        输入单位（支持最多14位，多了自己调）：<input id="dw" width="50" type="text" value='测试印章椭圆科技有限公司公司'/>
+
+​        <br>
+
+​         输入单位(英文)：<input id="edw" width="50" type="text" value='EASTPORTCOMPANY'/>
+
+​         <br>
+
+​        章下面文字：<input id="mdtext" width="50" type="text" value='公司章'/>
+
+​    
+
+        <div id="sealdiv" >
+
+​            <canvas id="canvas" width="165" height="165"></canvas>
+
+​        </div>
+
+​        </div>
+
+​        <input type="button" onclick="javascript:createSealEx();" value="生成中文公章"/>
+
+​        <input type="button" onclick="javascript:createSealEx2();" value="生成中英公章"/>
+
+​        
+
+<script>
+
+
+
+​    function createSealEx(){
+
+​       var dw = document.getElementById("dw"); 
+
+​       var edw = document.getElementById("edw");
+
+​       var mdtext = document.getElementById("mdtext");  
+
+​       var sealdiv = document.getElementById("sealdiv"); 
+
+​       sealdiv.innerHTML ="<canvas id='canvas' width='165' height='165'></canvas>";
+
+​       createSeal2('canvas',dw.value,mdtext.value);
+
+​    }
+
+​    function createSealEx2(){
+
+​       var dw = document.getElementById("dw"); 
+
+​       var edw = document.getElementById("edw");
+
+​       var mdtext = document.getElementById("mdtext");  
+
+​       var sealdiv = document.getElementById("sealdiv"); 
+
+​       sealdiv.innerHTML ="<canvas id='canvas' width='165' height='165'></canvas>";
+
+​       createSeal1('canvas',dw.value,edw.value,mdtext.value);
+
+​    }
+
+​    
+
+​    function createSeal1(id,company,ecompany,name){
+
+​        var canvas = document.getElementById("canvas");
+
+​        var context = canvas.getContext("2d");
+
+​        context.strokeStyle="red";//设置边框颜色
+
+​        context.textBaseline = 'middle';//设置文本的垂直对齐方式
+
+​        context.textAlign = 'center'; //设置文本的水平对对齐方式
+
+​        context.lineWidth = 2;//椭圆1宽度
+
+​        //3个参数： 左边距 上边据 宽度 椭圆扁度
+
+​        BezierEllipse4(context, 85, 79, 79, 55); //椭圆1
+
+​        context.lineWidth = 1;
+
+​        BezierEllipse4(context, 85, 79, 76, 52); //椭圆2
+
+​        context.lineWidth = 2;
+
+​        BezierEllipse4(context, 85, 79, 63, 39); //椭圆3
+
+​        // 绘制印章类型
+
+​        context.font = 'bolder 10px SimSun';//设置字体大小 样式
+
+​        context.fillStyle = 'red';//设置字体颜色
+
+​        context.fillText(name,canvas.width/2+3,canvas.height/2+25);    
+
+​        context.save(); //保存上述操作
+
+​        //绘制英文
+
+​        var circle={
+
+​            x:canvas.width/2,
+
+​            y:canvas.height/2,
+
+​            radius:58
+
+​        };
+
+​        var startAngle=220;//控制字符起始位置度数
+
+​        var endAngle =-40;//首位字符相隔度数
+
+​        var radius=circle.radius //圆的半径
+
+​        var angleDecrement=(startAngle-endAngle)/(ecompany.length-1)//每个字母占的弧度
+
+​        context.font="bolder 10px SimSun"
+
+​        context.lineWidth=1;//设置字体胖瘦
+
+​        var ratioX = 70 / circle.radius; //横轴缩放比率
+
+​        var ratioY = 45 / circle.radius; //纵轴缩放比率
+
+​        //进行缩放（均匀压缩） 重点
+
+​        context.scale(ratioX, ratioY);
+
+​        var index=0;
+
+​        for(var index=0;index<ecompany.length;index++){
+
+​            //保存之前的设置开始绘画
+
+​            context.save();
+
+​            context.beginPath();
+
+​            context.translate(circle.x+Math.cos((Math.PI/180)*startAngle)*radius-12,circle.y-Math.sin((Math.PI/180)*startAngle)*radius+19)//绘制点 +-微调
+
+​            context.rotate((Math.PI/2)-(Math.PI/180)*startAngle) ;  //Math.PI/2为旋转90度  Math.PI/180*X为旋转多少度
+
+​            context.fillText(ecompany.charAt(index),0,0);
+
+​            context.strokeText(ecompany.charAt(index),0,0);
+
+​            startAngle-=angleDecrement;
+
+​            context.restore();
+
+​        }
+
+​        
+
+​        // 绘制印章类型
+
+​        context.font = 'bolder 14px SimSun';
+
+​        context.lineWidth=1;
+
+​        context.fillStyle = '#f00';
+
+​        context.fillText(company.substring(0,6),canvas.width/2-11,canvas.height/2+6);    
+
+​        context.save(); 
+
+​        context.font = 'bolder 14px SimSun';
+
+​        context.lineWidth=1;
+
+​        context.fillStyle = '#f00';
+
+​        context.fillText(company.substring(6,12),canvas.width/2-12,canvas.height/2+25);    
+
+​        context.save();
+
+​        context.font = 'bolder 14px SimSun';
+
+​        context.lineWidth=1;
+
+​        context.fillStyle = '#f00';
+
+​        context.fillText(company.substring(12,company.length),canvas.width/2-12,canvas.height/2+40);    
+
+​        context.save();
+
+
+
+​    }
+
+​    function createSeal2(id,company,name){
+
+​        var canvas = document.getElementById("canvas");
+
+​        var context = canvas.getContext("2d");
+
+​        context.strokeStyle="red";//设置文本颜色
+
+​        context.textBaseline = 'middle';//设置文本的垂直对齐方式
+
+​        context.textAlign = 'center'; //设置文本的水平对对齐方式
+
+​        context.lineWidth = 2;//椭圆1宽度
+
+​        //3个参数： 左边距 上边据 宽度 椭圆扁度
+
+​        BezierEllipse4(context, 85, 79, 79, 55); //椭圆1
+
+​        context.lineWidth = 1;
+
+​        BezierEllipse4(context, 85, 79, 76, 52); //椭圆2
+
+​        
+
+​        // 绘制印章类型
+
+​        context.font = 'bolder 15px SimSun';
+
+​        context.lineWidth=1;
+
+​        context.fillStyle = '#f00';
+
+​        context.fillText(name,canvas.width/2+3,canvas.height/2+10);    
+
+​        context.save(); 
+
+
+
+​        //绘制中文
+
+​        var ccircle={
+
+​            x:canvas.width/2,
+
+​            y:canvas.height/2,
+
+​            radius:59
+
+​        };
+
+​        var cstartAngle=170;//控制字符起始位置度数
+
+​        var cendAngle =15;//首位字符相隔度数
+
+​        var cradius=ccircle.radius //圆的半径
+
+​        var cangleDecrement=(cstartAngle-cendAngle)/(company.length-1)//每个字母占的弧度
+
+​        context.font="12px SimSun"
+
+​        var cratioX = 66 / ccircle.radius; //横轴缩放比率
+
+​        var cratioY = 57 / ccircle.radius; //纵轴缩放比率
+
+​        //进行缩放（均匀压缩）
+
+​        context.scale(cratioX, cratioY);
+
+​        var cindex=0;
+
+​        for(var cindex=0;cindex<company.length;cindex++){
+
+​            context.save()
+
+​            context.beginPath()
+
+​            //绘制点
+
+​            context.translate(ccircle.x+Math.cos((Math.PI/180)*cstartAngle)*cradius-6,ccircle.y-Math.sin((Math.PI/180)*cstartAngle)*cradius+14)
+
+​            context.rotate((Math.PI/2)-(Math.PI/180)*cstartAngle)   //Math.PI/2为旋转90度  Math.PI/180*X为旋转多少度
+
+​            context.fillText(company.charAt(cindex),0,0)
+
+​            context.strokeText(company.charAt(cindex),0,0)
+
+​            cstartAngle-=cangleDecrement
+
+​            context.restore()
+
+​        }
+
+
+
+​    }    
+
+​    function BezierEllipse4(ctx, x, y, a, b){
+
+​        var k = .5522848,
+
+​        ox = a * k, // 水平控制点偏移量
+
+​        oy = b * k; // 垂直控制点偏移量</p> <p> 
+
+​        ctx.beginPath();
+
+​        //从椭圆的左端点开始顺时针绘制四条三次贝塞尔曲线
+
+​        ctx.moveTo(x - a, y);
+
+​        ctx.bezierCurveTo(x - a, y - oy, x - ox, y - b, x, y - b);
+
+​        ctx.bezierCurveTo(x + ox, y - b, x + a, y - oy, x + a, y);
+
+​        ctx.bezierCurveTo(x + a, y + oy, x + ox, y + b, x, y + b);
+
+​        ctx.bezierCurveTo(x - ox, y + b, x - a, y + oy, x - a, y);
+
+​        ctx.closePath();
+
+​        ctx.stroke();
+
+​    };
+
+​    
+
+</script>
+
+</body>
+
+</html>

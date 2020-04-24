@@ -1,4 +1,6 @@
-# 字体
+# 常用命令
+
+## 字体
 
 fc-list 显示所有字体
 
@@ -14,19 +16,9 @@ date
 
 ssh-keygen -t rsa -C "your_email@youremail.com"
 
+## 文件
 
-
-\# 字体
-
-
-
-fc-list 显示所有字体
-
-
-
-:lang=zh 中文字体
-
-
+- 显示文件大小：ls -lh
 
 # mkdir -p
 
