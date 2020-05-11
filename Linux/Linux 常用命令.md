@@ -2,15 +2,17 @@
 
 ## 字体
 
-fc-list 显示所有字体
+```sh
+# 显示所有字体
+fc-list 
+# 中文字体
+fc-list :lang=zh 
+# 更新缓存字体
+fc-cache -fv
+# 增加字体执行权限
+chmod -R 755
 
-:lang=zh 中文字体
-
-时间
-
-date
-
-自动同步时间
+```
 
 秘钥生成
 
