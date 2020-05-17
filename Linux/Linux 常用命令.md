@@ -1,50 +1,53 @@
 # 常用命令
 
-## 字体
+## 系统相关
+
+### 账号
+
+```sh
+# 更改密码
+passwd username
+# 秘钥生成
+ssh-keygen -t rsa -C "your_email@youremail.com"
+```
+
+### 字体
 
 ```sh
 # 显示所有字体
 fc-list 
 # 中文字体
 fc-list :lang=zh 
-# 更新缓存字体
-fc-cache -fv
-# 增加字体执行权限
-chmod -R 755
-
 ```
 
-秘钥生成
+时间
 
-ssh-keygen -t rsa -C "your_email@youremail.com"
+date 自动同步时间
 
 ## 文件
 
-- 显示文件大小：ls -lh
+```sh
+# 显示文件大小
+ls -lh
+# 文件增加执行权限
+chmod +x *.sh
+# ls -l 输出信息
 
-# mkdir -p
+```
 
-递归创建目录
+## 目录
 
-ls -l 输出信息
+```sh
+# 递归创建目录
+mkdir -p
+```
 
+## 端口号查询
 
-
-更改密码
-
-passwd username
-
-
-
-端口号查询
-
-# 参考
-
-
-
-https://blog.csdn.net/RBPicsdn/article/details/81079080
-
-
+```sh
+# 端口号占用查询
+lsof -i:8000
+```
 
 zip -r mydata.zip mydata #压缩mydata目录
 2、把/home目录下面的mydata.zip解压到mydatabak目录里面
@@ -52,8 +55,8 @@ unzip mydata.zip -d mydatabak
 3、把/home目录下面的abc文件夹和123.txt压缩成为abc123.zip
 zip -r abc123.zip abc 123.txt
 
-# 参考
+## 参考
 
-
+https://blog.csdn.net/RBPicsdn/article/details/81079080  
 
 https://blog.csdn.net/RBPicsdn/article/details/81079080
