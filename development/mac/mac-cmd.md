@@ -12,6 +12,8 @@
 
 打开当前用户文件夹：shift-Command-H
 
+复制文件引用地址：command shift option c
+
 
 
 ## 回到桌面
