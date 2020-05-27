@@ -117,9 +117,12 @@ go
 
 安装开发工具GoLand
 
+代理
 
-
-
+```sh
+$ export GO111MODULE=on
+$ export GOPROXY=https://goproxy.cn
+```
 
 官网
 
