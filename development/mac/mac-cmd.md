@@ -14,6 +14,8 @@
 
 复制文件引用地址：command shift option c
 
+切换编辑文件 control+tab
+
 
 
 ## 回到桌面

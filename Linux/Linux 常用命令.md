@@ -67,6 +67,7 @@ tar
 
 ```sh
 tar -zcvf 压缩后文件名.tar.gz 源文件/目录
+tar -zxvf vscode-server-linux-x64.tar.gz -C  解压目录
 ```
 
 

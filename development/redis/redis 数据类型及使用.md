@@ -6,6 +6,22 @@
 - 集合Set
 - 有序集合Zset
 
+## zset
+
+```sh
+# key 类型
+type geo-school
+# 删除key
+ del geo-school
+ # 删除zset中单个元素
+ # 范围搜索
+ zrange geo-school 0 3 withscores
+# 参考
+http://shouce.jb51.net/redis-all-about/DataStructure/key/del.html
+```
+
+
+
 #  String
 
 最大长度512M
