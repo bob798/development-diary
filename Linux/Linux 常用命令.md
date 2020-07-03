@@ -2,9 +2,13 @@
 
 ## 系统相关
 
-### 账号
+### 用户
 
 ```sh
+# 当前用户
+whoami 
+who
+users
 # 更改密码
 passwd username
 # 秘钥生成
@@ -29,6 +33,8 @@ date 自动同步时间
 ```sh
 # 显示文件大小
 ls -lh
+# 文件权限
+ls -l
 # 文件增加执行权限
 chmod +x *.sh
 # ls -l 输出信息

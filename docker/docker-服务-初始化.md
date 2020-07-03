@@ -7,12 +7,15 @@
 https://github.com/mritd/shell_scripts/blob/master/init_ubuntu.sh
 
 # ohmyzsh 安装
+https://www.jianshu.com/p/ba782b57ae96
 # wget install
 sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # curl install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 Failed to connect to raw.githubusercontent.com port 443
+# 地址查询 https://www.ipaddress.com/
+199.232.68.133 raw.githubusercontent.com
 # 域名解析污染，本地配置hosts
 在https://www.ipaddress.com/查询raw.githubusercontent.com的真实IP
 #国内网络 docker 下载
@@ -37,7 +40,7 @@ sudo apt-get upgrade
 sudo apt-get install build-essential 
 
 # docker install
-https://blog.csdn.net/White_Idiot/article/details/88950000
+https://docs.docker.com/engine/install/ubuntu/
 # error :存在非英文符号
 docker: invalid reference format. 
 
