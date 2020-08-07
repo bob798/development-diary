@@ -24,6 +24,14 @@ java.TimeUnit
 
 
 
+## break vs return
+
+break 终止 switch语句
+
+return 终止函数，直接返回结果，后续语句不执行。
+
+
+
 # 参考
 
 https://zhidao.baidu.com/question/1897659228068239180.html

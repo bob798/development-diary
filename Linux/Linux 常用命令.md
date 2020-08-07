@@ -117,6 +117,16 @@ unzip mydata.zip -d mydatabak
 3、把/home目录下面的abc文件夹和123.txt压缩成为abc123.zip
 zip -r abc123.zip abc 123.txt
 
+
+
+## 代理
+
+```sh
+export http_proxy=http://127.0.0.1:8123;export https_proxy=http://127.0.0.1:8123;
+```
+
+
+
 ## 参考
 
 https://blog.csdn.net/RBPicsdn/article/details/81079080  
